@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Обо мне — Полина Дзюба</title>
+  <meta name="description" content="Подробнее о Полине Дзюбе: направление, интересы, планы." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Резюме</a></li>
+        <li><a href="about.html" class="active">Обо мне</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section style="padding-top: 40px;">
+      <a class="back-link" href="index.html">← На главную</a>
+      <h1 style="font-size: 1.7rem; margin-bottom: 4px;">Обо мне</h1>
+    </section>
+
+    <div class="about-body">
+      <p>
+        Учусь на геймдев-направлении на 3 курсе и параллельно ищу первую работу
+        в индустрии. Больше всего интересует психология игрока: почему людям
+        интересно играть, из каких элементов складывается опыт игры. В идеале —
+        гейм-дизайн, но рынок таких позиций в РФ небольшой, поэтому в качестве
+        более реалистичного направления рассматриваю юзабилити-тестирование /
+        QA в играх, а также software- и mobile-разработку — здесь у меня уже
+        есть рабочие навыки.
+      </p>
+      <p>
+        Не рассматриваю релокацию, пока учусь. Уровень английского C1.
+      </p>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

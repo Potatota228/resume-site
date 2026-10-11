@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Проекты — Полина Дзюба</title>
+  <meta name="description" content="Галерея проектов Полины Дзюбы с фильтрами по навыкам и направлениям." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Резюме</a></li>
+        <li><a href="about.html">Обо мне</a></li>
+        <li><a href="projects.html" class="active">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section style="padding-top: 40px;">
+      <h1 style="font-size: 1.7rem; margin-bottom: 8px;">Все проекты</h1>
+      <p style="color: var(--text-muted); margin-bottom: 26px;">
+        Учебные и пет-проекты, фильтруемые по навыку или направлению.
+      </p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">Все</button>
+        <button class="filter-btn" data-filter="User Research/QA">User Research / QA</button>
+        <button class="filter-btn" data-filter="Game Dev">Гейм-дев</button>
+        <button class="filter-btn" data-filter="Web">Web</button>
+        <button class="filter-btn" data-filter="Android">Android</button>
+        <button class="filter-btn" data-filter="Python">Python</button>
+        <button class="filter-btn" data-filter="Java">Java</button>
+        <button class="filter-btn" data-filter="Godot">Godot / GDScript</button>
+      </div>
+
+      <div class="card-grid">
+
+        <a class="card" href="projects/birds-website.html" data-tags="Web">
+          <div class="card-top">
+            <h3>«Птицы Москвы и Подмосковья»</h3>
+            <span class="status done">Готово</span>
+          </div>
+          <p class="desc">Справочник из 25+ видов, 12 статей и шуточный тест — без фреймворков.</p>
+          <div class="tags"><span>Учебный проект</span><span>Web</span></div>
+        </a>
+
+        <a class="card" href="projects/birds-android.html" data-tags="Android,Java">
+          <div class="card-top">
+            <h3>Карманный определитель птиц Подмосковья</h3>
+            <span class="status done">Готово</span>
+          </div>
+          <p class="desc">Определитель 20 видов птиц с наблюдениями на карте и лентой сообщества.</p>
+          <div class="tags"><span>Учебный проект</span><span>Android</span><span>Java</span></div>
+        </a>
+
+        <a class="card" href="projects/cat-roguelite.html" data-tags="Game Dev,Godot">
+          <div class="card-top">
+            <h3>Cat Roguelite («Игрулька»)</h3>
+            <span class="status progress">В разработке</span>
+          </div>
+          <p class="desc">
+            Рогалик с симуляцией жизни клана котов на Godot 4, вдохновлённый «Котами-Воителями» и ClanGen. Дипломный проект.
+          </p>
+          <div class="tags"><span>Дипломный проект</span><span>Game Dev</span><span>Godot / GDScript</span></div>
+        </a>
+
+        <a class="card" href="projects/vnuchki.html" data-tags="Game Dev,Godot">
+          <div class="card-top">
+            <h3>Внучки́</h3>
+            <span class="status progress">В разработке</span>
+          </div>
+          <p class="desc">
+            Изометрический horde survival на Godot: бабка-спецназовец против орд зомби. Соло-проект — геймдизайн и разработка.
+          </p>
+          <div class="tags"><span>Game Dev</span><span>Godot / GDScript</span></div>
+        </a>
+
+        <!-- <a class="card" href="projects/dnd-dm-tool.html" data-tags="Python,Tools,Game Dev">
+          <div class="card-top">
+            <h3>DnD DM Tool</h3>
+            <span class="status progress">В процессе</span>
+          </div>
+          <p class="desc">
+            Python-инструмент для ведения ДнД-сессий без подготовки — импровизация NPC, лута и событий.
+          </p>
+          <div class="tags"><span>Python</span><span>Tools</span></div>
+        </a> -->
+
+        <a class="card" href="projects/playtest-research-tool.html" data-tags="User Research/QA,Java,Python,Game Dev">
+          <div class="card-top">
+            <h3>Playtest Research Tool</h3>
+            <span class="status progress">В процессе</span>
+          </div>
+          <p class="desc">
+            Java + Python инструмент для анализа плейтестов: находит rage input и застревания игрока в логах сессий.
+          </p>
+          <div class="tags"><span>User Research / QA</span><span>Java</span><span>Python</span></div>
+        </a>
+
+      </div>
+
+      <p class="empty-state">По этому фильтру пока ничего нет.</p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script src="js/filter.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

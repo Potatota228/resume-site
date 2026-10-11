@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Полина Дзюба — резюме</title>
+  <meta name="description" content="Резюме и портфолио Полины Дзюбы: гейм-дизайн, юзабилити-тестирование и QA, разработка." />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Резюме</a></li>
+        <li><a href="about.html">Обо мне</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero hero-with-photo">
+      <img class="hero-photo" src="projects/img/me.png" alt="Полина Дзюба">
+      <div class="hero-content">
+        <h1>Полина Дзюба</h1>
+        <div class="role">Юзабилити-тестирование и QA в играх · геймдев-разработка</div>
+        <p class="lead">
+          Студентка 3 курса направления «Программная инженерия (Разработка и дизайн
+          компьютерных игр и мультимедийных приложений)». Ищу стажировку или позицию
+          junior в области user research / QA в играх, также рассматриваю
+          software- и mobile-разработку.
+        </p>
+
+        <div class="contact-row">
+          <a href="https://t.me/Potatota" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://github.com/Potatota228" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:polinadzy@gmail.com">polinadzy@gmail.com</a>
+
+          <!-- <a href="https://www.linkedin.com/in/ЗАМЕНИТЬ-НА-СВОЙ-ЛОГИН" target="_blank" rel="noopener">LinkedIn</a> -->
+        </div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <h2>Навыки</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Языки и технологии</h3>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>Java</span>
+            <span>C++</span>
+            <span>GDScript / Godot</span>
+            <!-- <span>PHP</span> -->
+            <span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Инструменты</h3>
+          <div class="skill-tags">
+            <span>Git</span>
+            <span>Docker</span>
+            <span>Android</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Направления</h3>
+          <div class="skill-tags">
+            <span>User Research / QA</span>
+            <span>Гейм-дизайн</span>
+            <span>Мобильная разработка</span>
+            <span>Веб</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Языки общения</h3>
+          <div class="skill-tags">
+            <span>Русский — носитель</span>
+            <span>English — C1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <h2>Готовые проекты</h2>
+      <div class="card-grid">
+
+        <a class="card" href="projects/birds-website.html" data-tags="Web">
+          <div class="card-top">
+            <h3>«Птицы Москвы и Подмосковья»</h3>
+            <span class="status done">Готово</span>
+          </div>
+          <p class="desc">
+            Справочник из 25+ видов птиц, 12 статей и шуточный тест «Какая ты
+            подмосковная птица?» — без фреймворков, на чистом HTML/CSS/JS.
+          </p>
+          <div class="tags"><span>Учебный проект</span><span>Web</span></div>
+        </a>
+
+        <a class="card" href="projects/birds-android.html" data-tags="Android,Java">
+          <div class="card-top">
+            <h3>Карманный определитель птиц Подмосковья</h3>
+            <span class="status done">Готово</span>
+          </div>
+          <p class="desc">
+            Определитель 20 видов птиц с наблюдениями на карте и лентой сообщества.
+          </p>
+          <div class="tags"><span>Учебный проект</span><span>Android</span><span>Java</span></div>
+        </a>
+
+      </div>
+      <p style="margin-top: 18px;">
+        <a href="projects.html">Смотреть все проекты →</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Playtest Research Tool — Полина Дзюба</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Резюме</a></li>
+        <li><a href="../about.html">Обо мне</a></li>
+        <li><a href="../projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← Все проекты</a>
+      <div class="project-header-grid">
+        <div class="placeholder-img">
+          Схема / скриншот инструмента появится по ходу разработки
+        </div>
+        <div class="project-header-content">
+      <span class="status progress">В процессе — учебная практика, исследовательская фаза</span>
+      <h1>Playtest Research Tool</h1>
+      <div class="tags"><span>User Research / QA</span><span>Java</span><span>Python</span></div>
+
+      <div class="project-links">
+        <a href="ЗАМЕНИТЬ-НА-ССЫЛКУ-НА-РЕПО" target="_blank" rel="noopener">Код на GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>О проекте</h2>
+      <p>
+        Курсовая практика по теме «Проведение плейтестов и пользовательских
+        исследований»: нужно было изучить область и построить продукт,
+        автоматизирующий один из процессов, с использованием ООП-языка (Java)
+        и Python. Тему выбрала осознанно — она ближе всего к тому, что
+        интересует в геймдеве: как устроено мышление игрока, что нравится и почему.
+      </p>
+
+      <h2>Идея</h2>
+      <p>
+        Инструмент находит в логах игровой сессии признаки «rage input»
+        (яростного, нервного ввода) и паттерны застревания / зацикливания
+        игрока, проставляет для них временные метки и синхронизирует эти
+        метки с записью экрана сессии — чтобы быстро находить проблемные
+        моменты в записи, не пересматривая её целиком.
+      </p>
+
+      <h2>Границы проекта</h2>
+      <p>
+        Разбор нативных логов реальных игровых движков — вне рамок работы;
+        инструмент работает с фиксированной кастомной схемой событий
+        (<code>input_action</code>, <code>progression_event</code>,
+        <code>session_start</code>/<code>session_end</code>, без координат).
+        Входные данные — синтетические логи, имитирующие разные жанры и темп
+        игры, а не собственная игра автора (свой roguelite-проект пока не
+        готов для этой роли).
+      </p>
+
+      <h2>Статус</h2>
+      <p>
+        Сейчас идёт исследовательский этап — изучение предметной области и
+        существующих решений, до начала непосредственной разработки.
+        [Обновлять по мере прохождения этапов практики.]
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

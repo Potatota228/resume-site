@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Карманный определитель птиц Подмосковья — Полина Дзюба</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Резюме</a></li>
+        <li><a href="../about.html">Обо мне</a></li>
+        <li><a href="../projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← Все проекты</a>
+      <div class="project-header-grid">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img class="active" src="img/bird_app_1.png" alt="Скриншот приложения: карточка вида">
+            <img src="img/bird_app_2.png" alt="Скриншот приложения: лента наблюдений">
+          </div>
+          <button type="button" class="carousel-btn prev" aria-label="Предыдущее фото">‹</button>
+          <button type="button" class="carousel-btn next" aria-label="Следующее фото">›</button>
+          <div class="carousel-dots">
+            <button type="button" class="active" aria-label="Фото 1"></button>
+            <button type="button" aria-label="Фото 2"></button>
+          </div>
+        </div>
+        <div class="project-header-content">
+      <span class="status done">Готово</span>
+      <h1>Карманный определитель птиц Подмосковья</h1>
+      <div class="tags"><span>Учебный проект</span><span>Android</span><span>Java</span></div>
+
+      <div class="project-links">
+        <a href="https://github.com/Potatota228/BirdApp" target="_blank" rel="noopener">Код на GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>О проекте</h2>
+      <p>
+        Мобильное приложение-справочник для идентификации птиц Московской
+        области с социальными функциями. Пользователи могут листать карточки
+        20 видов птиц с фотогалереей и голосами, фиксировать собственные
+        наблюдения с геопривязкой на карте и публиковать их в общую ленту
+        сообщества.
+      </p>
+
+      <h2>Технологии</h2>
+      <p>
+        Java, Android SDK (minSdk 29), Firebase Authentication, Cloud
+        Firestore, OSMDroid (OpenStreetMap), ViewPager2, RecyclerView.
+      </p>
+
+      <h2>Что реализовано</h2>
+      <ul>
+        <li>Офлайн-справочник на основе локального JSON с кастомным парсером</li>
+        <li>Карусель фотографий с полоской превью и синхронизацией</li>
+        <li>Аутентификация по email/паролю с разделением ролей (пользователь / администратор)</li>
+        <li>Создание заметок с автодополнением названия птицы и интерактивной картой</li>
+        <li>Лента опубликованных наблюдений сообщества</li>
+        <li>Панель администратора с модерацией публикаций</li>
+      </ul>
+
+      <h2>Чему научилась</h2>
+      <ul>
+        <li>Проектирование клиент-серверной архитектуры по паттерну MVC</li>
+        <li>Работа с NoSQL базой данных (Firestore): составные индексы, правила безопасности, разграничение доступа по ролям</li>
+        <li>Построение адаптеров RecyclerView с паттерном ViewHolder</li>
+        <li>Интеграция сторонних карт (OSMDroid) как альтернатива Google Maps SDK</li>
+        <li>Полный цикл разработки: от технического задания и IDEF0/DFD диаграмм до тестирования прототипа</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/carousel.js"></script>
+
+</body>
+</html>

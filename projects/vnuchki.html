@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Внучки́ — Полина Дзюба</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Резюме</a></li>
+        <li><a href="../about.html">Обо мне</a></li>
+        <li><a href="../projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← Все проекты</a>
+      <div class="project-header-grid">
+        <img class="project-photo" src="img/vnuchki.png" alt="Арт / скриншот игры «Внучки́»" style="aspect-ratio: 1307 / 924;">
+        <div class="project-header-content">
+      <span class="status progress">В разработке</span>
+      <h1>Внучки́</h1>
+      <div class="tags"><span>Game Dev</span><span>Godot / GDScript</span></div>
+
+      <div class="project-links">
+        <!-- <a href="ЗАМЕНИТЬ-НА-ССЫЛКУ-НА-РЕПО" target="_blank" rel="noopener">Код на GitHub</a> -->
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>О проекте</h2>
+      <p>
+        Изометрический экшен, horde survival, соло-проект — геймдизайн и
+        разработка на Godot. Бабка-спецназовец пробивается через орды зомби
+        к дому, где её ждут внуки. Игра про удовольствие от отклика: каждый
+        удар игрок наносит сам, а зомби в ответ хрустят, лопаются и
+        разлетаются брызгами.
+      </p>
+
+      <h2>Механики</h2>
+      <ul>
+        <li>
+          <strong>Удар по области.</strong> Бабка бьёт клюкой по дуге и задевает
+          всех зомби в зоне. Обычные зомби лопаются от одного удара, с
+          хитстопом и тряской камеры.
+        </li>
+        <li>
+          <strong>Стрик убийств.</strong> Каждое убийство разгоняет стрик, и на
+          порогах удар усиливается: дуга становится шире, потом появляется
+          ударная волна, отбрасывающая толпу, а дальше зомби начинают
+          взрываться цепной реакцией. Если 2 секунды никого не убивать, стрик
+          затухает, а от укуса сгорает сразу.
+        </li>
+        <li>
+          <strong>Риск и награда.</strong> Подпускать толпу ближе выгодно,
+          потому что за один удар гибнет больше зомби, но опасно: толпа может
+          задавить числом.
+        </li>
+        <li>
+          <strong>Боссы-зомби.</strong> Прокачанные зомби выдерживают много
+          ударов и заранее телеграфируют атаки. Бой с ними строится на чтении
+          замаха и ударах в окно уязвимости, а накопленный стрик умножает урон.
+        </li>
+        <li>
+          <strong>Выбор и концовки.</strong> Босса можно обойти, но тогда он
+          доберётся до дома первым и заберёт внука. Сколько боссов игрок
+          победил и дошёл ли он живым, решает исход: хорошая, сомнительная
+          или плохая концовка.
+        </li>
+      </ul>
+
+      <h2>Стиль</h2>
+      <p>
+        Изометрия и мерзкая мультяшность: гротескные зомби, слизь и брызги.
+      </p>
+
+      <h2>Что делала</h2>
+      <p>
+        Соло-проект: геймдизайн и разработка полностью на себе — проектирование
+        боевой системы и прогрессии стрика, баланс риска и награды, реализация
+        на Godot.
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

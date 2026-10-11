@@ -1,0 +1,591 @@
+/* ===========================================================
+   Полина Дзюба — резюме / портфолио
+   Единый стиль для всех страниц сайта
+   =========================================================== */
+
+:root {
+  --bg: #faf8f5;
+  --bg-card: #ffffff;
+  --text: #121e02;
+  --text-muted: #6b6459;
+  --accent: #568a12;
+  --accent-soft: #f1ded4;
+  --border: #e6e0d6;
+  --tag-bg: #efece5;
+  --tag-bg-active: #568a12;
+  --tag-text-active: #ffffff;
+  --shadow: 0 2px 10px rgba(36, 33, 29, 0.06);
+  --radius: 14px;
+  --max-width: 1180px;
+}
+
+a {
+  text-decoration: none;
+  color: #568a12;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Header / nav ---------- */
+
+header.site-header {
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 0;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.nav a.brand {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: var(--accent);
+}
+
+/* ---------- Hero / intro ---------- */
+
+.hero {
+  padding: 32px 0 10px;
+}
+
+.hero-with-photo {
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.hero-photo {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 620px) {
+  .hero-with-photo {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .hero-photo {
+    max-width: 200px;
+  }
+}
+
+.hero h1 {
+  font-size: 1.85rem;
+  margin: 0 0 4px;
+}
+
+.hero .role {
+  font-size: 1.02rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 2px 0 10px;
+}
+
+.hero p.lead {
+  max-width: 640px;
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  margin: 4px 0 0;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 10%;
+}
+
+.contact-row a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 0.9rem;
+  background: var(--bg-card);
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.contact-row a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* ---------- Section titles ---------- */
+
+section {
+  padding: 16px 0;
+}
+
+section h2 {
+  font-size: 1.3rem;
+  margin-bottom: 12px;
+}
+
+section.divider {
+  border-top: 1px solid var(--border);
+}
+
+/* ---------- Skills ---------- */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+
+.skill-group h3 {
+  font-size: 0.82rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--text-muted);
+  margin: 0 0 8px;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.skill-tags span {
+  background: var(--tag-bg);
+  border-radius: 8px;
+  padding: 5px 10px;
+  font-size: 0.87rem;
+}
+
+/* ---------- Project cards ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(36, 33, 29, 0.1);
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 1.08rem;
+}
+
+.status {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.status.done {
+  background: #dcefe0;
+  color: #2f7a4d;
+}
+
+.status.progress {
+  background: #f6e6c8;
+  color: #96691a;
+}
+
+.card p.desc {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+
+.card .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: auto;
+}
+
+.card .tags span {
+  background: var(--tag-bg);
+  border-radius: 6px;
+  padding: 3px 8px;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ---------- Filter bar (gallery page) ---------- */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 26px;
+}
+
+.filter-btn {
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.87rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: all 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: var(--accent);
+}
+
+.filter-btn.active {
+  background: var(--tag-bg-active);
+  border-color: var(--tag-bg-active);
+  color: var(--tag-text-active);
+}
+
+.empty-state {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  padding: 30px 0;
+  text-align: center;
+  display: none;
+}
+
+/* ---------- Project detail page ---------- */
+
+.project-header {
+  padding: 48px 0 20px;
+}
+
+.project-header-grid {
+  display: grid;
+  grid-template-columns: minmax(260px, 460px) 1fr;
+  gap: 32px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.project-header-grid .placeholder-img {
+  margin: 0;
+}
+
+.project-photo {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+}
+
+/* ---------- Project image carousel ---------- */
+
+.carousel {
+  position: relative;
+}
+
+.carousel-track {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--tag-bg);
+  overflow: hidden;
+}
+
+.carousel-track img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.carousel-track img.active {
+  opacity: 1;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  box-shadow: var(--shadow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--text);
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.carousel-btn.prev {
+  left: 10px;
+}
+
+.carousel-btn.next {
+  right: 10px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.carousel-dots button {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+}
+
+.carousel-dots button.active {
+  background: var(--accent);
+}
+
+@media (max-width: 720px) {
+  .project-header-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+}
+
+.project-header .status {
+  margin-bottom: 12px;
+  display: inline-block;
+}
+
+.project-header h1 {
+  margin: 6px 0 10px;
+  font-size: 1.9rem;
+}
+
+.project-header .tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 14px 0;
+}
+
+.project-header .tags span {
+  background: var(--tag-bg);
+  border-radius: 6px;
+  padding: 3px 9px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.project-links a {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 14px;
+  text-decoration: none;
+  color: var(--text);
+  font-size: 0.9rem;
+  background: var(--bg-card);
+}
+
+.project-links a:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.project-body h2 {
+  font-size: 1.2rem;
+  margin-top: 36px;
+}
+
+.project-body p,
+.about-body p {
+  color: var(--text);
+}
+
+.project-body ul {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text);
+}
+
+.project-body code,
+.about-body code {
+  background: var(--tag-bg);
+  border-radius: 4px;
+  padding: 1px 5px;
+  font-size: 0.88em;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+}
+
+.project-body ul li {
+  margin-bottom: 10px;
+}
+
+.project-body ul li:last-child {
+  margin-bottom: 0;
+}
+
+.about-body {
+  max-width: 680px;
+  padding: 8px 0 20px;
+}
+
+.about-body h2 {
+  font-size: 1.2rem;
+  margin-top: 30px;
+}
+
+
+.placeholder-img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  border: 1px dashed var(--border);
+  background: var(--accent-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin: 20px 0;
+  text-align: center;
+  padding: 16px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 18px;
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.back-link:hover {
+  color: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+  padding: 28px 0 40px;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 560px) {
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+  .nav-links {
+    gap: 14px;
+  }
+}

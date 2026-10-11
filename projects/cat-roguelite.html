@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Roguelite — Полина Дзюба</title>
+  <link rel="stylesheet" href="../css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Резюме</a></li>
+        <li><a href="../about.html">Обо мне</a></li>
+        <li><a href="../projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← Все проекты</a>
+      <div class="project-header-grid">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img class="active" src="img/cat_roguelite_1.png" alt="Скриншот геймплея Cat Roguelite">
+            <img src="img/cat_roguelite_2.png" alt="Скриншот геймплея Cat Roguelite">
+          </div>
+          <button type="button" class="carousel-btn prev" aria-label="Предыдущее фото">‹</button>
+          <button type="button" class="carousel-btn next" aria-label="Следующее фото">›</button>
+          <div class="carousel-dots">
+            <button type="button" class="active" aria-label="Фото 1"></button>
+            <button type="button" aria-label="Фото 2"></button>
+          </div>
+        </div>
+        <div class="project-header-content">
+      <span class="status progress">В разработке</span>
+      <h1>Cat Roguelite</h1>
+      <div class="tags"><span>Личный проект</span><span>Game Dev</span><span>Godot / GDScript</span></div>
+
+      <div class="project-links">
+        <a href="ЗАМЕНИТЬ-НА-ССЫЛКУ-НА-РЕПО" target="_blank" rel="noopener">Код на GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>О проекте</h2>
+      <p>
+        Рогалик с симуляцией жизни клана, вдохновлённый серией «Коты-Воители»
+        и ClanGen. Игрок управляет одним котом, рождённым в клане. Он
+        исследует тайловый мир с туманом войны, выстраивает отношения с NPC,
+        а после смерти получает процедурно сгенерированную эпитафию.
+        Разрабатывается на Godot 4 / GDScript как личный проект.
+      </p>
+
+      <h2>Стек</h2>
+      <ul>
+        <li><strong>Движок и язык:</strong> Godot 4.6, GDScript</li>
+        <li><strong>Арт:</strong> пиксель-арт в Aseprite, послойные спрайты котов (тело, глаза, тень) для каждой возрастной стадии, шейдеры <code>palette_swap</code> и <code>shadow</code></li>
+        <li><strong>Данные:</strong> контент вынесен в JSON (внешность, имена, состояния/травмы, лут, причины смерти, черты)</li>
+        <li><strong>Инструменты:</strong> Git, документация проекта в Obsidian</li>
+      </ul>
+
+      <h2>Архитектура</h2>
+      <ul>
+        <li>
+          <strong>Разделение данных, логики и отображения.</strong> Данные
+          лежат в <code>Resource</code>-классах: <code>CatData</code>,
+          <code>RelationshipData</code>, <code>WorldEvent</code>,
+          <code>LifeLogEntry</code>, <code>MapTile</code>. Логика собрана в
+          системах-синглтонах (autoload): <code>GameState</code>,
+          <code>CatManager</code>, <code>KinshipSystem</code>,
+          <code>TimeskipSystem</code>, <code>PlayerKnowledgeSystem</code>,
+          <code>CatPlacementSystem</code>, <code>ClanGenerator</code>,
+          <code>MapGenerator</code>. Сцены только отображают состояние.
+        </li>
+        <li>
+          <strong>Граф отношений.</strong> Это направленный словарь
+          <code>{from_id → {to_id → RelationshipData}}</code>. Связи
+          (родитель/ребёнок, пара, наставник, соперник, <code>CO_PARENT</code>
+          и др.) хранятся как набор типов бондов. Семантика связей разведена
+          намеренно: например, <code>CO_PARENT</code> («у нас были общие
+          котята») отделён от <code>MATE</code> и даёт задел под механику
+          скандалов.
+        </li>
+        <li>
+          <strong>KinshipSystem.</strong> Это read-only слой запросов по
+          родству: родители, братья и сёстры, деды, кузены, пары и бывшие
+          пары. Все функции типизированы по id.
+        </li>
+        <li>
+          <strong>Сигналы.</strong> Менеджер котов оповещает о событиях
+          (<code>cat_died</code>, <code>cat_born</code>,
+          <code>cat_promoted</code> и др.) и ничего не знает о слушателях. Это
+          развязывает логику, журнал и UI.
+        </li>
+        <li>
+          <strong>Модель событий (гибрид).</strong> Активные события
+          привязаны к тайлам и действиям игрока. Пассивные (рождения, смерти,
+          травмы во время таймскипа) подчиняются туману войны: игрок узнаёт о
+          них через диалог, а не потому что «видел». Общий движок событий
+          (<code>EventResolver</code>) основан на реестре именованных
+          предикатов и JSON-описаниях событий.
+        </li>
+      </ul>
+
+      <h2>Фишки</h2>
+      <ul>
+        <li>
+          Полноценный жизненный цикл клана: старение, роли и повышения,
+          наставничество, беременность, роды, смерть. Соответствующие связи
+          автоматически переходят в «бывшие» (<code>MATE → PAST_MATE</code>,
+          <code>MENTOR → PAST_MENTOR</code>).
+        </li>
+        <li>Система состояний (болезни, травмы, беременность) с ежемесячной обработкой и возможной потерей конечностей.</li>
+        <li>Генерация «фантомных» мёртвых родителей, чтобы у каждого кота была полная родословная.</li>
+        <li>Туман войны на уровне знаний: различаются «слышал о коте» и «видел его», а мёртвые коты не считаются увиденными.</li>
+        <li>Генерация клана и тайловой карты с активностями (охота, сбор трав, раскопки), расстановка NPC по территории.</li>
+        <li>Процедурные эпитафии на основе журнала жизни кота.</li>
+        <li>Ретро-эстетика: разрешение 1152×864 (4:3), тайлы 96 px, пиксельный шрифт.</li>
+      </ul>
+
+      <h2>Вдохновение</h2>
+      <p>
+        Книжная серия «Коты-Воители» и браузерная игра ClanGen. Главное
+        отличие от ClanGen: вместо абстрактных текстовых патрулей здесь
+        настоящая карта, по которой ходит и в которой живёт игрок.
+      </p>
+
+      <h2>Где мы сейчас (статус)</h2>
+      <p><strong>Готово:</strong></p>
+      <ul>
+        <li>карта и генерация клана</li>
+        <li>расстановка NPC</li>
+        <li>граф родства и <code>KinshipSystem</code></li>
+        <li>беременность и роды</li>
+        <li>система состояний</li>
+        <li>туман войны и знания игрока</li>
+        <li>UI-каркас (меню игрока, вкладки карты, инвентаря и известных котов)</li>
+      </ul>
+      <p><strong>В работе:</strong></p>
+      <ul>
+        <li><code>EventResolver</code> и пассивные события (случайные смерти и травмы)</li>
+        <li>диалоги через <code>talk_to()</code> (раз в месяц на кота)</li>
+        <li>экран эпитафии</li>
+        <li>защита от инбридинга</li>
+        <li>перерасстановка котов при каждом таймскипе</li>
+      </ul>
+      <p><strong>В бэклоге:</strong> задачи от ментора и депутата с социальными последствиями, хищники на карте, <code>CO_PARENT</code>.</p>
+
+      <h2>Что делала</h2>
+      <ul>
+        <li>Спроектировала и реализовала на Godot 4/GDScript симуляцию жизни клана: старение, наставничество, беременность и роды, смерть, граф отношений между NPC.</li>
+        <li>Разработала систему родства (<code>KinshipSystem</code>) и семантически разделённые типы связей, как основу для будущих социальных механик.</li>
+        <li>Построила архитектуру с разделением данных, логики и отображения: <code>Resource</code>-модели, системы-синглтоны, сигнальная связь между модулями.</li>
+        <li>Реализовала туман войны на уровне знаний игрока и гибридную модель активных и пассивных событий.</li>
+        <li>Организовала контент через JSON и работу с пиксель-артом (Aseprite, послойные спрайты, шейдеры).</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Полина Дзюба
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/carousel.js"></script>
+
+</body>
+</html>
