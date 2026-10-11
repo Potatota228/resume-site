@@ -579,6 +579,206 @@ footer {
   font-size: 0.85rem;
 }
 
+/* ---------- Easter egg: bird next to name ---------- */
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+}
+
+.easter-bird {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.6rem;
+  line-height: 1;
+  padding: 2px 4px;
+  border-radius: 50%;
+  transition: background 0.15s ease;
+}
+
+.easter-bird:hover,
+.easter-bird:focus {
+  background: var(--tag-bg);
+  outline: none;
+}
+
+.easter-bubble {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 12px 14px;
+  box-shadow: var(--shadow);
+  z-index: 5;
+  width: 200px;
+  opacity: 0;
+  transform: translateY(-6px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.easter-bubble.visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.easter-bubble p {
+  margin: 0 0 10px;
+  font-size: 0.92rem;
+}
+
+.easter-bubble-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.easter-bubble-actions button {
+  flex: 1;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--bg-card);
+  padding: 6px 0;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: border-color 0.15s ease;
+}
+
+.easter-bubble-actions button.primary {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.easter-bubble-actions button:hover {
+  border-color: var(--accent);
+}
+
+/* ---------- Secret game page ---------- */
+
+.game-wrap {
+  padding: 12px 0 30px;
+  max-width: 460px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.game-wrap .back-link {
+  margin-bottom: 8px;
+}
+
+.game-wrap h1 {
+  font-size: 1.4rem;
+  margin: 4px 0 8px;
+}
+
+.game-intro {
+  color: var(--text-muted);
+  font-size: 0.86rem;
+  margin: 0 0 10px;
+}
+
+.game-hud {
+  display: flex;
+  justify-content: space-between;
+  max-width: 420px;
+  margin: 0 auto 8px;
+  font-weight: 600;
+  opacity: 1;
+  transition: opacity 0.15s ease;
+}
+
+.game-hud.hud-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.game-canvas-wrap {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+#gameCanvas {
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  aspect-ratio: 420 / 560;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  touch-action: none;
+}
+
+/* На широких/невысоких экранах (десктоп) размер канваса считаем от
+   высоты окна, а не от ширины — иначе max-height ломает пропорции
+   420:560 и картинка "сплющивается". Ширина следует за высотой сама,
+   благодаря aspect-ratio. */
+@media (min-width: 700px) {
+  #gameCanvas {
+    width: auto;
+    height: min(56vh, 560px);
+    max-width: 100%;
+  }
+}
+
+#overlayText:empty {
+  display: none;
+  margin: 0;
+}
+
+.game-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(250, 248, 245, 0.92);
+  border-radius: var(--radius);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease;
+}
+
+.game-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.game-overlay-box {
+  text-align: center;
+  padding: 20px;
+}
+
+.game-overlay-box p {
+  margin-bottom: 14px;
+  font-weight: 600;
+  max-width: 320px;
+  color: var(--text);
+}
+
+.game-overlay-box button {
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.game-overlay-box button:hover {
+  opacity: 0.9;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 560px) {

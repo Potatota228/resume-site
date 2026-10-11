@@ -25,7 +25,20 @@
     <section class="hero hero-with-photo">
       <img class="hero-photo" src="projects/img/me.png" alt="Полина Дзюба">
       <div class="hero-content">
-        <h1>Полина Дзюба</h1>
+        <div class="name-row">
+          <h1>Полина Дзюба</h1>
+          <button type="button" class="easter-bird" id="easterBird" aria-label="Птичка">
+            <!-- Плейсхолдер — замени на <img src="img/bird-icon.png" alt="" class="easter-bird-img"> когда пришлёшь спрайт -->
+            🐦
+          </button>
+          <div class="easter-bubble" id="easterBubble">
+            <p>Хочешь поиграть?</p>
+            <div class="easter-bubble-actions">
+              <button type="button" id="easterYes" class="primary">Да</button>
+              <button type="button" id="easterNo">Нет</button>
+            </div>
+          </div>
+        </div>
         <div class="role">Гейм-дизайн · Юзабилити-тестирование и QA в играх · Разработка</div>
         <p class="lead">
           Студентка 3 курса направления «Программная инженерия
@@ -128,6 +141,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+  <script src="js/easter-egg.js"></script>
 
 </body>
 </html>

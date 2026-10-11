@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Лови офферы — Полина Дзюба</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Полина Дзюба</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Резюме</a></li>
+        <li><a href="about.html">Обо мне</a></li>
+        <li><a href="projects.html">Проекты</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap game-wrap">
+    <a class="back-link" href="index.html">← Назад</a>
+    <h1>Полина ловит офферы</h1>
+    <p class="game-intro">
+      Управление стрелками ← → или мышью/пальцем.
+    </p>
+
+    <div class="game-hud hud-hidden" id="gameHud">
+      <div class="game-score">Счёт: <span id="score">0</span> / 50</div>
+      <div class="game-lives">Жизни: <span id="lives">❤️❤️❤️</span></div>
+    </div>
+
+    <div class="game-canvas-wrap">
+      <canvas id="gameCanvas" width="420" height="560"></canvas>
+      <div class="game-overlay visible" id="gameOverlay">
+        <div class="game-overlay-box">
+          <p id="overlayText"></p>
+          <button type="button" id="overlayBtn">Начать</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/game.js"></script>
+
+</body>
+</html>
