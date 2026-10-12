@@ -2,6 +2,7 @@
   const canvas = document.getElementById("gameCanvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
+  ctx.imageSmoothingEnabled = false;
   const W = canvas.width;
   const H = canvas.height;
 
@@ -29,13 +30,27 @@
   const SPAWN_INTERVAL_START = 1100;
   const SPAWN_INTERVAL_MIN = 200;
 
+  // Спрайт игрока (Полина с коробкой). Пиксель-арт, поэтому рисуем без
+  // сглаживания — ctx.imageSmoothingEnabled выставлен в false ниже.
+  const PLAYER_W = 84;
+  const PLAYER_H = 172;
+  const playerImg = new Image();
+  let playerImgReady = false;
+  playerImg.onload = () => {
+    playerImgReady = true;
+  };
+  playerImg.src = "projects/img/mini-me.png";
+
   let player, items, score, lives, running, spawnTimer, lastTime;
 
-  // Плеер — пока плейсхолдер (прямоугольник с лапкой). Когда появится
-  // спрайт из Aseprite, замени тело drawPlayer() на:
-  // ctx.drawImage(playerImg, player.x, player.y, player.w, player.h);
   function resetState() {
-    player = { x: W / 2 - 30, y: H - 50, w: 60, h: 36, speed: 7 };
+    player = {
+      x: W / 2 - PLAYER_W / 2,
+      y: H - PLAYER_H - 8,
+      w: PLAYER_W,
+      h: PLAYER_H,
+      speed: 7
+    };
     items = [];
     score = 0;
     lives = MAX_LIVES;
@@ -65,14 +80,15 @@
   }
 
   function drawPlayer() {
-    ctx.fillStyle = "#b5654a";
-    ctx.beginPath();
-    ctx.roundRect(player.x, player.y, player.w, player.h, 10);
-    ctx.fill();
-    ctx.fillStyle = "#fff";
-    ctx.font = "20px sans-serif";
-    ctx.textAlign = "center";
-    ctx.fillText("🐦", player.x + player.w / 2, player.y + player.h / 2 + 7);
+    if (playerImgReady) {
+      ctx.drawImage(playerImg, player.x, player.y, player.w, player.h);
+    } else {
+      // Пока картинка не загрузилась — временная заглушка.
+      ctx.fillStyle = "#b5654a";
+      ctx.beginPath();
+      ctx.roundRect(player.x, player.y, player.w, player.h, 10);
+      ctx.fill();
+    }
   }
 
   function drawItem(item) {

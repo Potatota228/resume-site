@@ -592,17 +592,26 @@ footer {
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 1.6rem;
   line-height: 1;
-  padding: 2px 4px;
+  padding: 3px;
   border-radius: 50%;
-  transition: background 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease;
 }
 
 .easter-bird:hover,
 .easter-bird:focus {
-  background: var(--tag-bg);
   outline: none;
+  transform: scale(1.08);
+}
+
+.easter-bird-img {
+  width: 60px;
+  height: 60px;
+  display: block;
+  image-rendering: pixelated;
 }
 
 .easter-bubble {
