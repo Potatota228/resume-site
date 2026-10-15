@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cat Roguelite — Polina Dziuba</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/projects/cat-roguelite.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/projects/cat-roguelite.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Resume</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../../projects/cat-roguelite.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← All projects</a>
+      <div class="project-header-grid">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img class="active" src="../../projects/img/cat_roguelite_1.png" alt="Cat Roguelite gameplay screenshot">
+            <img src="../../projects/img/cat_roguelite_2.png" alt="Cat Roguelite gameplay screenshot">
+          </div>
+          <button type="button" class="carousel-btn prev" aria-label="Previous image">‹</button>
+          <button type="button" class="carousel-btn next" aria-label="Next image">›</button>
+          <div class="carousel-dots">
+            <button type="button" class="active" aria-label="Image 1"></button>
+            <button type="button" aria-label="Image 2"></button>
+          </div>
+        </div>
+        <div class="project-header-content">
+      <span class="status progress">In development</span>
+      <h1>Cat Roguelite</h1>
+      <div class="tags"><span>Personal project</span><span>Game Dev</span><span>Godot / GDScript</span></div>
+
+      <div class="project-links">
+        <a href="ЗАМЕНИТЬ-НА-ССЫЛКУ-НА-РЕПО" target="_blank" rel="noopener">Code on GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>About the project</h2>
+      <p>
+        A roguelite with a clan life simulation, inspired by the Warriors book
+        series and ClanGen. The player controls a single cat born into a clan.
+        They explore a tile-based world with fog of war, build relationships
+        with NPCs, and after death receive a procedurally generated epitaph.
+        Developed in Godot 4 / GDScript as a personal project.
+      </p>
+
+      <h2>Stack</h2>
+      <ul>
+        <li><strong>Engine and language:</strong> Godot 4.6, GDScript</li>
+        <li><strong>Art:</strong> pixel art in Aseprite, layered cat sprites (body, eyes, shadow) for each life stage, <code>palette_swap</code> and <code>shadow</code> shaders</li>
+        <li><strong>Data:</strong> content stored in JSON (appearance, names, conditions/injuries, loot, causes of death, traits)</li>
+        <li><strong>Tools:</strong> Git, project documentation in Obsidian</li>
+      </ul>
+
+      <h2>Architecture</h2>
+      <ul>
+        <li>
+          <strong>Separation of data, logic and presentation.</strong> Data
+          lives in <code>Resource</code> classes: <code>CatData</code>,
+          <code>RelationshipData</code>, <code>WorldEvent</code>,
+          <code>LifeLogEntry</code>, <code>MapTile</code>. Logic lives in
+          singleton systems (autoloads): <code>GameState</code>,
+          <code>CatManager</code>, <code>KinshipSystem</code>,
+          <code>TimeskipSystem</code>, <code>PlayerKnowledgeSystem</code>,
+          <code>CatPlacementSystem</code>, <code>ClanGenerator</code>,
+          <code>MapGenerator</code>. Scenes only display state.
+        </li>
+        <li>
+          <strong>Relationship graph.</strong> A directed dictionary
+          <code>{from_id → {to_id → RelationshipData}}</code>. Bonds
+          (parent/child, mate, mentor, rival, <code>CO_PARENT</code>
+          and more) are stored as a set of bond types. Their semantics are
+          deliberately kept apart: for example, <code>CO_PARENT</code> (“we
+          had kittens together”) is separate from <code>MATE</code>, laying
+          the groundwork for a scandal mechanic.
+        </li>
+        <li>
+          <strong>KinshipSystem.</strong> A read-only query layer over
+          kinship: parents, siblings, grandparents, cousins, mates and former
+          mates. All functions are typed and work by id.
+        </li>
+        <li>
+          <strong>Signals.</strong> The cat manager emits events
+          (<code>cat_died</code>, <code>cat_born</code>,
+          <code>cat_promoted</code>, etc.) without knowing anything about its
+          listeners. This decouples logic, the life log and the UI.
+        </li>
+        <li>
+          <strong>Event model (hybrid).</strong> Active events are tied to
+          tiles and player actions. Passive ones (births, deaths, injuries
+          during a timeskip) obey the fog of war: the player learns about them
+          through dialogue rather than by “seeing” them. The shared event engine
+          (<code>EventResolver</code>) is built on a registry of named
+          predicates and JSON event descriptions.
+        </li>
+      </ul>
+
+      <h2>Highlights</h2>
+      <ul>
+        <li>
+          A full clan life cycle: aging, roles and promotions, mentorship,
+          pregnancy, birth, death. The related bonds automatically become
+          “former” ones (<code>MATE → PAST_MATE</code>,
+          <code>MENTOR → PAST_MENTOR</code>).
+        </li>
+        <li>A condition system (illnesses, injuries, pregnancy) processed monthly, with possible loss of limbs.</li>
+        <li>Generation of “phantom” dead parents so every cat has a complete family tree.</li>
+        <li>Knowledge-level fog of war: “heard of a cat” and “has seen it” are different states, and dead cats don't count as seen.</li>
+        <li>Clan and tile map generation with activities (hunting, herb gathering, digging) and NPC placement across the territory.</li>
+        <li>Procedural epitaphs based on the cat's life log.</li>
+        <li>Retro look: 1152×864 resolution (4:3), 96 px tiles, pixel font.</li>
+      </ul>
+
+      <h2>Inspiration</h2>
+      <p>
+        The Warriors book series and the browser game ClanGen. The main
+        difference from ClanGen: instead of abstract text patrols, there's a
+        real map that the player walks around and lives in.
+      </p>
+
+      <h2>Where we are now (status)</h2>
+      <p><strong>Done:</strong></p>
+      <ul>
+        <li>map and clan generation</li>
+        <li>NPC placement</li>
+        <li>kinship graph and <code>KinshipSystem</code></li>
+        <li>pregnancy and birth</li>
+        <li>condition system</li>
+        <li>fog of war and player knowledge</li>
+        <li>UI skeleton (player menu, map, inventory and known cats tabs)</li>
+      </ul>
+      <p><strong>In progress:</strong></p>
+      <ul>
+        <li><code>EventResolver</code> and passive events (random deaths and injuries)</li>
+        <li>dialogue via <code>talk_to()</code> (once a month per cat)</li>
+        <li>epitaph screen</li>
+        <li>inbreeding prevention</li>
+        <li>re-placing cats on every timeskip</li>
+      </ul>
+      <p><strong>Backlog:</strong> tasks from the mentor and the deputy with social consequences, predators on the map, <code>CO_PARENT</code>.</p>
+
+      <h2>What I did</h2>
+      <ul>
+        <li>Designed and implemented a clan life simulation in Godot 4/GDScript: aging, mentorship, pregnancy and birth, death, and a relationship graph between NPCs.</li>
+        <li>Built a kinship system (<code>KinshipSystem</code>) and semantically separated bond types as a foundation for future social mechanics.</li>
+        <li>Set up an architecture separating data, logic and presentation: <code>Resource</code> models, singleton systems, signal-based communication between modules.</li>
+        <li>Implemented knowledge-level fog of war and a hybrid model of active and passive events.</li>
+        <li>Organized content in JSON and the pixel art pipeline (Aseprite, layered sprites, shaders).</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../../js/carousel.js"></script>
+
+</body>
+</html>

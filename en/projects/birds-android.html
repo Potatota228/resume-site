@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pocket Bird Guide to the Moscow Region — Polina Dziuba</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/projects/birds-android.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/projects/birds-android.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Resume</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../../projects/birds-android.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← All projects</a>
+      <div class="project-header-grid">
+        <div class="carousel">
+          <div class="carousel-track">
+            <img class="active" src="../../projects/img/bird_app_1.png" alt="App screenshot: species profile">
+            <img src="../../projects/img/bird_app_2.png" alt="App screenshot: sightings feed">
+          </div>
+          <button type="button" class="carousel-btn prev" aria-label="Previous image">‹</button>
+          <button type="button" class="carousel-btn next" aria-label="Next image">›</button>
+          <div class="carousel-dots">
+            <button type="button" class="active" aria-label="Image 1"></button>
+            <button type="button" aria-label="Image 2"></button>
+          </div>
+        </div>
+        <div class="project-header-content">
+      <span class="status done">Done</span>
+      <h1>Pocket Bird Guide to the Moscow Region</h1>
+      <div class="tags"><span>Coursework</span><span>Android</span><span>Java</span></div>
+
+      <div class="project-links">
+        <a href="https://github.com/Potatota228/BirdApp" target="_blank" rel="noopener">Code on GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>About the project</h2>
+      <p>
+        A mobile field guide for identifying birds of the Moscow Region, with
+        social features. Users can browse profiles of 20 bird species with
+        photo galleries and calls, record their own geotagged sightings on a
+        map, and publish them to a shared community feed.
+      </p>
+
+      <h2>Technologies</h2>
+      <p>
+        Java, Android SDK (minSdk 29), Firebase Authentication, Cloud
+        Firestore, OSMDroid (OpenStreetMap), ViewPager2, RecyclerView.
+      </p>
+
+      <h2>What's implemented</h2>
+      <ul>
+        <li>An offline guide based on local JSON with a custom parser</li>
+        <li>A photo carousel with a synced thumbnail strip</li>
+        <li>Email/password authentication with separate roles (user / administrator)</li>
+        <li>Creating sightings with bird name autocomplete and an interactive map</li>
+        <li>A feed of published community sightings</li>
+        <li>An admin panel for moderating posts</li>
+      </ul>
+
+      <h2>What I learned</h2>
+      <ul>
+        <li>Designing a client-server architecture following the MVC pattern</li>
+        <li>Working with a NoSQL database (Firestore): composite indexes, security rules, role-based access control</li>
+        <li>Building RecyclerView adapters with the ViewHolder pattern</li>
+        <li>Integrating third-party maps (OSMDroid) as an alternative to the Google Maps SDK</li>
+        <li>The full development cycle: from the technical specification and IDEF0/DFD diagrams to prototype testing</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../../js/carousel.js"></script>
+
+</body>
+</html>

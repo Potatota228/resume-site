@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Polina Dziuba — Resume</title>
+  <meta name="description" content="Resume and portfolio of Polina Dziuba: game design, usability testing and QA, development." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/index.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/index.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Resume</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="../index.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section class="hero hero-with-photo">
+      <img class="hero-photo" src="../projects/img/me.png" alt="Polina Dziuba">
+      <div class="hero-content">
+        <div class="name-row">
+          <h1>Polina Dziuba</h1>
+          <button type="button" class="easter-bird" id="easterBird" aria-label="Little bird">
+            <img src="../projects/img/kakapo.png" alt="" class="easter-bird-img" id="easterBirdImg">
+          </button>
+          <div class="easter-bubble" id="easterBubble">
+            <p>Wanna play?</p>
+            <div class="easter-bubble-actions">
+              <button type="button" id="easterYes" class="primary">Yes</button>
+              <button type="button" id="easterNo">No</button>
+            </div>
+          </div>
+        </div>
+        <div class="role">Game Design · Usability Testing &amp; QA in Games · Development</div>
+        <p class="lead">
+          Third-year Software Engineering student majoring in Computer Game and
+          Multimedia Application Development and Design. Looking for an internship
+          or a junior position in game design; also open to user research / QA in games,
+          software and mobile development.
+        </p>
+
+        <div class="contact-row">
+          <a href="https://t.me/Potatota" target="_blank" rel="noopener">Telegram</a>
+          <a href="https://www.linkedin.com/in/полина-дзюба-4b17b7442" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/Potatota228" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:polinadzy@gmail.com">polinadzy@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages &amp; Technologies</h3>
+          <div class="skill-tags">
+            <span>Python</span>
+            <span>Java</span>
+            <span>C++</span>
+            <span>GDScript / Godot</span>
+            <!-- <span>PHP</span> -->
+            <span>SQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Tools</h3>
+          <div class="skill-tags">
+            <span>Git</span>
+            <span>Docker</span>
+            <span>Android</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Areas</h3>
+          <div class="skill-tags">
+            <span>User Research / QA</span>
+            <span>Game Design</span>
+            <span>Mobile Development</span>
+            <span>Web</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Spoken Languages</h3>
+          <div class="skill-tags">
+            <span>Russian — native</span>
+            <span>English — C1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="divider">
+      <h2>Completed Projects</h2>
+      <div class="card-grid">
+
+        <a class="card" href="projects/birds-website.html" data-tags="Web">
+          <div class="card-top">
+            <h3>Birds of Moscow and the Moscow Region</h3>
+            <span class="status done">Done</span>
+          </div>
+          <p class="desc">
+            A guide to 25+ bird species, 12 articles and a tongue-in-cheek quiz
+            “Which Moscow-region bird are you?” — no frameworks, plain HTML/CSS/JS.
+          </p>
+          <div class="tags"><span>Coursework</span><span>Web</span></div>
+        </a>
+
+        <a class="card" href="projects/birds-android.html" data-tags="Android,Java">
+          <div class="card-top">
+            <h3>Pocket Bird Guide to the Moscow Region</h3>
+            <span class="status done">Done</span>
+          </div>
+          <p class="desc">
+            A field guide to 20 bird species with sightings on a map and a community feed.
+          </p>
+          <div class="tags"><span>Coursework</span><span>Android</span><span>Java</span></div>
+        </a>
+
+      </div>
+      <p style="margin-top: 18px;">
+        <a href="projects.html">See all projects →</a>
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script src="../js/easter-egg.js"></script>
+
+</body>
+</html>

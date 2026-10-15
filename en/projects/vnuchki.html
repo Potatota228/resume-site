@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vnuchki — Polina Dziuba</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/projects/vnuchki.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/projects/vnuchki.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Resume</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../../projects/vnuchki.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← All projects</a>
+      <div class="project-header-grid">
+        <img class="project-photo" src="../../projects/img/vnuchki.png" alt="Art / screenshot of the game Vnuchki" style="aspect-ratio: 1307 / 924;">
+        <div class="project-header-content">
+      <span class="status progress">In development</span>
+      <h1>Vnuchki</h1>
+      <div class="tags"><span>Game Dev</span><span>Godot / GDScript</span></div>
+
+      <div class="project-links">
+        <!-- <a href="ЗАМЕНИТЬ-НА-ССЫЛКУ-НА-РЕПО" target="_blank" rel="noopener">Code on GitHub</a> -->
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>About the project</h2>
+      <p>
+        An isometric action horde survival game, a solo project — game design
+        and development in Godot. An ex-commando grandma fights her way through
+        hordes of zombies to the house where her grandkids (<em>vnuchki</em>
+        in Russian) are waiting. The game is about the joy of feedback: the
+        player lands every hit themselves, and the zombies crunch, pop and
+        burst into splatter in response.
+      </p>
+
+      <h2>Mechanics</h2>
+      <ul>
+        <li>
+          <strong>Area attack.</strong> Grandma swings her cane in an arc and
+          hits every zombie in the zone. Regular zombies pop in one hit, with
+          hitstop and screen shake.
+        </li>
+        <li>
+          <strong>Kill streak.</strong> Every kill builds up the streak, and at
+          certain thresholds the attack gets stronger: the arc widens, then a
+          shockwave appears that knocks the crowd back, and after that zombies
+          start exploding in a chain reaction. If you go 2 seconds without a
+          kill, the streak fades, and a bite resets it instantly.
+        </li>
+        <li>
+          <strong>Risk and reward.</strong> Letting the crowd get closer pays
+          off, since more zombies die per hit, but it's dangerous: the horde
+          can overwhelm you with numbers.
+        </li>
+        <li>
+          <strong>Zombie bosses.</strong> Upgraded zombies take many hits and
+          telegraph their attacks. Fighting them is about reading the wind-up
+          and hitting during the vulnerability window, while the accumulated
+          streak multiplies damage.
+        </li>
+        <li>
+          <strong>Choices and endings.</strong> A boss can be avoided, but then
+          it reaches the house first and takes a grandkid. How many bosses the
+          player defeated and whether they made it home alive decide the
+          outcome: a good, questionable or bad ending.
+        </li>
+      </ul>
+
+      <h2>Style</h2>
+      <p>
+        Isometric view and gross-out cartoon style: grotesque zombies, slime and splatter.
+      </p>
+
+      <h2>What I did</h2>
+      <p>
+        Solo project: I handle all of the game design and development —
+        designing the combat system and streak progression, balancing risk and
+        reward, and implementing it in Godot.
+      </p>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

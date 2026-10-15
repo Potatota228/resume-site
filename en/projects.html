@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Projects — Polina Dziuba</title>
+  <meta name="description" content="Polina Dziuba's project gallery with filters by skill and area." />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/projects.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/projects.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Resume</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="../projects.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <section style="padding-top: 40px;">
+      <h1 style="font-size: 1.7rem; margin-bottom: 8px;">All projects</h1>
+      <p style="color: var(--text-muted); margin-bottom: 26px;">
+        Coursework and personal projects, filterable by skill or area.
+      </p>
+
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="User Research/QA">User Research / QA</button>
+        <button class="filter-btn" data-filter="Game Dev">Game Dev</button>
+        <button class="filter-btn" data-filter="Web">Web</button>
+        <button class="filter-btn" data-filter="Android">Android</button>
+        <button class="filter-btn" data-filter="Python">Python</button>
+        <button class="filter-btn" data-filter="Java">Java</button>
+        <button class="filter-btn" data-filter="Godot">Godot / GDScript</button>
+      </div>
+
+      <div class="card-grid">
+
+        <a class="card" href="projects/birds-website.html" data-tags="Web">
+          <div class="card-top">
+            <h3>Birds of Moscow and the Moscow Region</h3>
+            <span class="status done">Done</span>
+          </div>
+          <p class="desc">A guide to 25+ species, 12 articles and a fun quiz — no frameworks.</p>
+          <div class="tags"><span>Coursework</span><span>Web</span></div>
+        </a>
+
+        <a class="card" href="projects/birds-android.html" data-tags="Android,Java">
+          <div class="card-top">
+            <h3>Pocket Bird Guide to the Moscow Region</h3>
+            <span class="status done">Done</span>
+          </div>
+          <p class="desc">A field guide to 20 bird species with sightings on a map and a community feed.</p>
+          <div class="tags"><span>Coursework</span><span>Android</span><span>Java</span></div>
+        </a>
+
+        <a class="card" href="projects/cat-roguelite.html" data-tags="Game Dev,Godot">
+          <div class="card-top">
+            <h3>Cat Roguelite</h3>
+            <span class="status progress">In development</span>
+          </div>
+          <p class="desc">
+            A roguelite with a cat clan life simulation, built in Godot 4 and inspired by Warriors and ClanGen.
+          </p>
+          <div class="tags"><span>Game Dev</span><span>Godot / GDScript</span></div>
+        </a>
+
+        <a class="card" href="projects/vnuchki.html" data-tags="Game Dev,Godot">
+          <div class="card-top">
+            <h3>Vnuchki</h3>
+            <span class="status progress">In development</span>
+          </div>
+          <p class="desc">
+            An isometric horde survival game in Godot: an ex-commando grandma vs. hordes of zombies. Solo project — game design and development.
+          </p>
+          <div class="tags"><span>Game Dev</span><span>Godot / GDScript</span></div>
+        </a>
+
+        <!-- <a class="card" href="projects/dnd-dm-tool.html" data-tags="Python,Tools,Game Dev">
+          <div class="card-top">
+            <h3>DnD DM Tool</h3>
+            <span class="status progress">In progress</span>
+          </div>
+          <p class="desc">
+            A Python tool for running D&D sessions with zero prep — improvised NPCs, loot and events.
+          </p>
+          <div class="tags"><span>Python</span><span>Tools</span></div>
+        </a> -->
+
+        <a class="card" href="projects/playtest-research-tool.html" data-tags="User Research/QA,Java,Python,Game Dev">
+          <div class="card-top">
+            <h3>Playtest Research Tool</h3>
+            <span class="status progress">In progress</span>
+          </div>
+          <p class="desc">
+            A Java + Python tool for playtest analysis: detects rage input and moments when the player gets stuck in session logs.
+          </p>
+          <div class="tags"><span>User Research / QA</span><span>Java</span><span>Python</span></div>
+        </a>
+
+      </div>
+
+      <p class="empty-state">Nothing here for this filter yet.</p>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script src="../js/filter.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

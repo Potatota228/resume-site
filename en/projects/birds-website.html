@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Birds of Moscow and the Moscow Region — Polina Dziuba</title>
+  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/projects/birds-website.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/projects/birds-website.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="../index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Resume</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../projects.html">Projects</a></li>
+        <li><a href="../../projects/birds-website.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="project-header">
+      <a class="back-link" href="../projects.html">← All projects</a>
+      <div class="project-header-grid">
+        <img class="project-photo" src="../../projects/img/bird_site.png" alt="Screenshot of the Birds of Moscow and the Moscow Region website" style="aspect-ratio: 2926 / 1392;">
+        <div class="project-header-content">
+      <span class="status done">Done</span>
+      <h1>Birds of Moscow and the Moscow Region</h1>
+      <div class="tags"><span>Coursework</span><span>Web</span></div>
+
+      <div class="project-links">
+        <a href="https://potatota228.github.io/" target="_blank" rel="noopener">Visit the site (in Russian)</a>
+        <a href="https://github.com/Potatota228/Potatota228.github.io" target="_blank" rel="noopener">Code on GitHub</a>
+      </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="project-body">
+
+      <h2>About the project</h2>
+      <p>
+        A multi-page educational website about the birds of Moscow and the
+        Moscow Region. It includes a species guide with detailed profiles, a
+        section of articles on how to help and observe birds, and a
+        tongue-in-cheek quiz “Which Moscow-region bird are you?”. I built all
+        the pages, layout and logic myself, without ready-made templates or
+        libraries.
+      </p>
+
+      <h2>Features</h2>
+      <ul>
+        <li>
+          <strong>A guide to 25+ species.</strong> Birds can be filtered by
+          diet (predators, omnivores, granivores, insectivores) with a filter
+          written in JS. There's also a statistics block.
+        </li>
+        <li>
+          <strong>A species profile</strong> for every bird: Latin name,
+          taxonomy, conservation status, size, weight and wingspan, habitat,
+          diet, breeding, voice and behavior, and a fun fact.
+        </li>
+        <li>
+          <strong>12 articles:</strong> first aid for fledglings,
+          rehabilitation of injured birds, winter feeding, migration,
+          identifying birds by song, bird photography, the Red Book and other
+          topics. Long articles have a sticky table of contents with anchor
+          links.
+        </li>
+        <li>
+          <strong>An interactive 8-question quiz.</strong> It has a progress
+          bar, lets you go back to the previous question, and the “Next”
+          button stays disabled until an answer is chosen. The result is
+          calculated by the number of matches and followed by a description of
+          the bird, its personality traits and a link to its profile in the guide.
+        </li>
+        <li>
+          <strong>Responsive layout:</strong> on screens narrower than 800px a
+          burger menu appears and the grids collapse into a single column.
+        </li>
+      </ul>
+
+      <h2>Highlights</h2>
+      <ul>
+        <li>
+          <strong>An animated hero illustration</strong> in pure CSS. The hills
+          are made of rotated ellipses, and the tree has a hollow. When you
+          hover over the banner, a bird peeks out of the hollow: it sits in a
+          container with <code>overflow: hidden</code>, so only part of it is
+          visible as it moves.
+        </li>
+        <li>
+          <strong>A burger menu without a single line of JS.</strong> It runs on
+          a hidden checkbox and the <code>:checked + label</code> selector. The
+          icon turns into a cross using <code>::before</code>/<code>::after</code>,
+          <code>box-shadow</code> and delayed transitions.
+        </li>
+        <li>
+          <strong>“Floating” birds</strong> in the quiz block. This is a CSS
+          animation, <code>@keyframes float</code>, and each circle has its own
+          <code>animation-delay</code>, so the birds bob out of sync.
+        </li>
+        <li>
+          <strong>Quiz data is separated from logic.</strong> Questions and
+          results are stored in JS objects, and the interface is built from
+          them dynamically. Adding a question or a new bird takes just one
+          more entry.
+        </li>
+        <li>
+          <strong>A playful tone in the quiz:</strong> results like “Hostage of
+          extroverts” or “Owl. They're not wise, they're grumpy cats with
+          wings”. It makes the site livelier than a typical reference guide.
+        </li>
+      </ul>
+
+      <h2>Technologies</h2>
+      <p>
+        HTML5, CSS3 (Flexbox, Grid, animations, media queries), vanilla
+        JavaScript with no frameworks, Google Fonts, hosted on GitHub Pages.
+      </p>
+
+      <h2>What I learned</h2>
+      <ul>
+        <li>Building layouts without frameworks: Flexbox, Grid with auto-fit/minmax, positioning and z-index, handling overflow.</li>
+        <li>Making layouts responsive with media queries, and building interactive bits like a burger menu with CSS tricks instead of JS.</li>
+        <li>Working with the DOM in JavaScript: querying elements, toggling classes, creating elements dynamically, handling events.</li>
+        <li>Keeping UI state (current question, answers) and rendering screens from data instead of hard-coding them.</li>
+        <li>Maintaining a consistent visual style across 40+ pages: a shared palette and font, with common styles in a separate CSS file.</li>
+        <li>Designing information pages: convenient navigation through long texts and clearly structured profile cards.</li>
+        <li>Publishing a static site with GitHub Pages.</li>
+      </ul>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      © <span id="year"></span> Polina Dziuba
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

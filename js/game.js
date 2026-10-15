@@ -13,6 +13,31 @@
   const overlayText = document.getElementById("overlayText");
   const overlayBtn = document.getElementById("overlayBtn");
 
+  // ---------- Тексты на двух языках ----------
+  // Язык берётся из <html lang="..."> страницы (ru — по умолчанию).
+  const STRINGS = {
+    ru: {
+      offer: "ОФФЕР",
+      win: "Оффер получен!",
+      lose: "Упс, три оффера упущено. Попробовать снова?",
+      again: "Играть ещё раз"
+    },
+    en: {
+      offer: "OFFER",
+      win: "Offer received!",
+      lose: "Oops, three offers missed. Try again?",
+      again: "Play again"
+    }
+  };
+  const lang = (document.documentElement.lang || "ru").slice(0, 2);
+  const T = STRINGS[lang] || STRINGS.ru;
+
+  // Путь к картинкам считаем от самого скрипта, а не от страницы,
+  // чтобы игра работала и из корня, и из папки en/.
+  const scriptSrc = document.currentScript && document.currentScript.src;
+  const imgUrl = (name) =>
+    scriptSrc ? new URL("../projects/img/" + name, scriptSrc).href : "projects/img/" + name;
+
   const WIN_SCORE = 50;
   const MAX_LIVES = 3;
 
@@ -39,7 +64,7 @@
   playerImg.onload = () => {
     playerImgReady = true;
   };
-  playerImg.src = "projects/img/mini-me.png";
+  playerImg.src = imgUrl("mini-me.png");
 
   let player, items, score, lives, running, spawnTimer, lastTime;
 
@@ -102,7 +127,7 @@
     ctx.fillStyle = "#6b4a3a";
     ctx.font = "bold 15px sans-serif";
     ctx.textAlign = "center";
-    ctx.fillText("ОФФЕР", item.x + item.w / 2, item.y + item.h / 2 + 5);
+    ctx.fillText(T.offer, item.x + item.w / 2, item.y + item.h / 2 + 5);
   }
 
   function rectsOverlap(a, b) {
@@ -219,9 +244,9 @@
     running = false;
     overlay.classList.add("visible");
     overlayText.textContent = won
-      ? "Оффер получен!"
-      : "Упс, три оффера упущено. Попробовать снова?";
-    overlayBtn.textContent = "Играть ещё раз";
+      ? T.win
+      : T.lose;
+    overlayBtn.textContent = T.again;
     if (won) {
       playWinSound();
     } else {

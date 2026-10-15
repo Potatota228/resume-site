@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Catch the Offers — Polina Dziuba</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="alternate" hreflang="ru" href="https://potatota228.github.io/resume-site/game.html" />
+  <link rel="alternate" hreflang="en" href="https://potatota228.github.io/resume-site/en/game.html" />
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="index.html">Polina Dziuba</a>
+      <ul class="nav-links">
+        <li><a href="index.html">Resume</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="../game.html" class="lang-switch" hreflang="ru" lang="ru" title="Русская версия">RU</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main class="wrap game-wrap">
+    <a class="back-link" href="index.html">← Back</a>
+    <h1>Polina Catches Offers</h1>
+    <p class="game-intro">
+      Move with the ← → arrow keys or with your mouse/finger.
+    </p>
+
+    <div class="game-hud hud-hidden" id="gameHud">
+      <div class="game-score">Score: <span id="score">0</span> / 50</div>
+      <div class="game-lives">Lives: <span id="lives">❤️❤️❤️</span></div>
+    </div>
+
+    <div class="game-canvas-wrap">
+      <canvas id="gameCanvas" width="420" height="560"></canvas>
+      <div class="game-overlay visible" id="gameOverlay">
+        <div class="game-overlay-box">
+          <p id="overlayText"></p>
+          <button type="button" id="overlayBtn">Start</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../js/game.js"></script>
+
+</body>
+</html>

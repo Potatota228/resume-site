@@ -6,8 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const noBtn = document.getElementById("easterNo");
   if (!bird || !bubble) return;
 
-  const BIRD_IDLE = "projects/img/kakapo.png";
-  const BIRD_CURIOUS = "projects/img/kakapo-curious.png";
+  // Пути берём от уже загруженной картинки — так работает и в корне, и в en/.
+  const BIRD_IDLE = birdImg ? birdImg.src : "projects/img/kakapo.png";
+  const BIRD_CURIOUS = BIRD_IDLE.replace("kakapo.png", "kakapo-curious.png");
 
   let hideTimer;
 
